@@ -1,47 +1,42 @@
-"use client";
 import React from "react";
-import { useForm } from "react-hook-form";
-
-export default function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
-
+import Image from "next/image";
+import contact from "../../../public/contact.jpg";
+const ContactForm = () => {
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mt-12 text-base xs:text-lg sm:text-xl font-medium leading-relaxed font-in"
-    >
-      Hello! My name is{" "}
-      <input
-        type="text"
-        placeholder="your name"
-        {...register("name", { required: true, maxLength: 80 })}
-        className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-gray 
-        focus:border-gray bg-transparent"
-      />
-      and I want to discuss a potential project. You can email me at
-      <input type="email" placeholder="your@email" {...register("email", {})}  className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-gray 
-        focus:border-gray bg-transparent"/>
-      or reach out to me on
-      <input
-        type="tel"
-        placeholder="your phone"
-        {...register("phone number", {})}
-        className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-gray 
-        focus:border-gray bg-transparent"
-      />
-      Here are some details about my project: <br />
-      <textarea {...register("project details", {})} 
-      placeholder="My project is about..."
-      rows={3}
-      className="w-full outline-none border-0 p-0 mx-0 focus:ring-0  placeholder:text-lg border-b border-gray 
-        focus:border-gray bg-transparent" />
-      <input type="submit" value="send request" className="mt-8 font-medium inline-block capitalize text-lg sm:text-xl py-2 sm:py-3 px-6 sm:px-8 border-2 border-solid border-dark dark:border-light rounded cursor-pointer" />
-    </form>
+    <section className="bg-white">
+      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div className="mr-auto place-self-center lg:col-span-7">
+          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-dark">
+            Payments tool for software companies
+          </h1>
+          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl text-dark">
+            From checkout
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-light rounded-lg bg-dark"
+          >
+            Contact us
+            <svg
+              className="w-5 h-5 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        </div>
+        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <Image src={contact} alt="Vatsphere" />
+        </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default ContactForm;
